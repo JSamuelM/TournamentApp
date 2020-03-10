@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="game">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="team_id_home" Type="Int32" Nullable="false" />
+    <Property Name="team_id_away" Type="Int32" Nullable="false" />
+    <Property Name="score_home" Type="SByte" Nullable="false" />
+    <Property Name="score_away" Type="SByte" Nullable="false" />
+    <Property Name="tournament_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="team" Relationship="Self.game_ibfk_1" FromRole="game" ToRole="team" />
+    <NavigationProperty Name="team1" Relationship="Self.game_ibfk_2" FromRole="game" ToRole="team" />
+    <NavigationProperty Name="tournament" Relationship="Self.game_ibfk_3" FromRole="game" ToRole="tournament" />
+  </EntityType>
+  <EntityType Name="player">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="player_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="playeR_surname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="player_age" Type="SByte" Nullable="false" />
+    <Property Name="team_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="team" Relationship="Self.player_ibfk_1" FromRole="player" ToRole="team" />
+  </EntityType>
+  <EntityType Name="team">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="team_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="game" Relationship="Self.game_ibfk_1" FromRole="team" ToRole="game" />
+    <NavigationProperty Name="game1" Relationship="Self.game_ibfk_2" FromRole="team" ToRole="game" />
+    <NavigationProperty Name="player" Relationship="Self.player_ibfk_1" FromRole="team" ToRole="player" />
+  </EntityType>
+  <EntityType Name="tournament">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="tournament_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="game" Relationship="Self.game_ibfk_3" FromRole="tournament" ToRole="game" />
+  </EntityType>
+  <Association Name="game_ibfk_1">
+    <End Role="team" Type="Self.team" Multiplicity="1" />
+    <End Role="game" Type="Self.game" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="team">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="game">
+        <PropertyRef Name="team_id_home" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="game_ibfk_2">
+    <End Role="team" Type="Self.team" Multiplicity="1" />
+    <End Role="game" Type="Self.game" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="team">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="game">
+        <PropertyRef Name="team_id_away" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="game_ibfk_3">
+    <End Role="tournament" Type="Self.tournament" Multiplicity="1" />
+    <End Role="game" Type="Self.game" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tournament">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="game">
+        <PropertyRef Name="tournament_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="player_ibfk_1">
+    <End Role="team" Type="Self.team" Multiplicity="1" />
+    <End Role="player" Type="Self.player" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="team">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="player">
+        <PropertyRef Name="team_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="game" EntityType="Self.game" />
+    <EntitySet Name="player" EntityType="Self.player" />
+    <EntitySet Name="team" EntityType="Self.team" />
+    <EntitySet Name="tournament" EntityType="Self.tournament" />
+    <AssociationSet Name="game_ibfk_1" Association="Self.game_ibfk_1">
+      <End Role="team" EntitySet="team" />
+      <End Role="game" EntitySet="game" />
+    </AssociationSet>
+    <AssociationSet Name="game_ibfk_2" Association="Self.game_ibfk_2">
+      <End Role="team" EntitySet="team" />
+      <End Role="game" EntitySet="game" />
+    </AssociationSet>
+    <AssociationSet Name="game_ibfk_3" Association="Self.game_ibfk_3">
+      <End Role="tournament" EntitySet="tournament" />
+      <End Role="game" EntitySet="game" />
+    </AssociationSet>
+    <AssociationSet Name="player_ibfk_1" Association="Self.player_ibfk_1">
+      <End Role="team" EntitySet="team" />
+      <End Role="player" EntitySet="player" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

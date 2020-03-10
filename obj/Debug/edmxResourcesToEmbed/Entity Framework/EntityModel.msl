@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="game">
+      <EntityTypeMapping TypeName="Model.game">
+        <MappingFragment StoreEntitySet="game">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="team_id_home" ColumnName="team_id_home" />
+          <ScalarProperty Name="team_id_away" ColumnName="team_id_away" />
+          <ScalarProperty Name="score_home" ColumnName="score_home" />
+          <ScalarProperty Name="score_away" ColumnName="score_away" />
+          <ScalarProperty Name="tournament_id" ColumnName="tournament_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="player">
+      <EntityTypeMapping TypeName="Model.player">
+        <MappingFragment StoreEntitySet="player">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="player_name" ColumnName="player_name" />
+          <ScalarProperty Name="playeR_surname" ColumnName="playeR_surname" />
+          <ScalarProperty Name="player_age" ColumnName="player_age" />
+          <ScalarProperty Name="team_id" ColumnName="team_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="team">
+      <EntityTypeMapping TypeName="Model.team">
+        <MappingFragment StoreEntitySet="team">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="team_name" ColumnName="team_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tournament">
+      <EntityTypeMapping TypeName="Model.tournament">
+        <MappingFragment StoreEntitySet="tournament">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="tournament_name" ColumnName="tournament_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
