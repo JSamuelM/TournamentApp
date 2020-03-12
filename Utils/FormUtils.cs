@@ -5,11 +5,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TournamentApp.Models;
 
 namespace TournamentApp.Utils
 {
-    class FormUtils
+    static class FormUtils
     {
+        public delegate Boolean Func<in T, out Boolean>(T arg);
+        public static List<CmbItem> getDataSourceForCmb<T>(List<T> records, string valueProperty, string idProperty)
+        {
+            List<CmbItem> items = new List<CmbItem>();
+            foreach (T record in records)
+            {
+                int id = (int)record.GetType().GetProperty(idProperty).GetValue(record);
+                string value = (string)record.GetType().GetProperty(valueProperty).GetValue(record);
+                items.Add(new CmbItem(value, id));
+            }
+            return items;
+        }
+
+
         public static void hideColumnsForDgv(int[] columnsToHide, DataGridView dgv)
         {
             foreach (int column in columnsToHide)
