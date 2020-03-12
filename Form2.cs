@@ -10,7 +10,9 @@ using System.Windows.Forms;
 using TournamentApp.Controllers;
 using TournamentApp.Entity_Framework;
 using TournamentApp.Model;
+using TournamentApp.Models;
 using TournamentApp.Utils;
+using static TournamentApp.Models.FormValidators;
 
 namespace TournamentApp
 {
@@ -71,8 +73,18 @@ namespace TournamentApp
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                 loadTable();
                 cleanForm();
+                
+
             }
+            /*else {
+                MessageBox.Show("Error","Error",
+                  MessageBoxButtons.OK, MessageBoxIcon.Information);
+                loadTable();
+                cleanForm();
+            }
+            */
         }
+
 
         // Actualizar registro
         private void updateData(team currentTeam)
@@ -98,7 +110,7 @@ namespace TournamentApp
             Operation<team> operation = teamController.deleteRecord(currentTeam);
             if (operation.State)
             {
-                MessageBox.Show("Equipo elimnado con éxito", "Éxito",
+                MessageBox.Show("Equipo eliminado con éxito", "Éxito",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                 loadTable();
                 cleanForm();
@@ -114,7 +126,7 @@ namespace TournamentApp
         private void cleanForm()
         {
             FormUtils.clearTextbox(textControls());
-            btnAgregar.Text = "Guardar";
+            btnAgregar.Text = "Agregar";
         }
 
         private Control[] textControls()
@@ -132,6 +144,7 @@ namespace TournamentApp
             try
             {
                 loadTable();
+                dgvTeam.ClearSelection();
             }
             catch (Exception ex)
             {
@@ -177,6 +190,9 @@ namespace TournamentApp
             try
             {
                 cleanForm();
+                dgvTeam.ClearSelection();
+                selectedTeam = null;
+
             }
             catch (Exception ex)
             {
@@ -186,24 +202,54 @@ namespace TournamentApp
 
         private void btnAgregar_Click_1(object sender, EventArgs e)
         {
+
             try
             {
-              
-                if (selectedTeam == null)
+                List<ControlErrorProvider> errorProvider = FormValidators.validFormTest(getValidators());
+                bool isValid = errorProvider == null;
+                if (isValid)
                 {
-                    saveData();
+
+                    if (selectedTeam == null)
+                    {
+                        saveData();
+                        dgvTeam.ClearSelection();
+                        this.errorProvider.Clear();
+                    }
+                    else
+                    {
+                        selectedTeam.team_name = txtName.Text;
+                        updateData(selectedTeam);
+                    }
                 }
                 else
                 {
-                    selectedTeam.team_name = txtName.Text;
-                    updateData(selectedTeam);
+                    this.errorProvider.Clear();
+                    MessageBox.Show("Algunos datos ingresados son inválidos.\n" +
+                        "Pase el puntero sobre los íconos de error para ver los detalles de cada campo.", "Error al ingresar datos",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    foreach (ControlErrorProvider controlErrorProvider in errorProvider)
+                    {
+                        this.errorProvider.SetError(controlErrorProvider.ControlName,
+                            controlErrorProvider.ErrorMessage);
+                    }
+                   
                 }
-              
             }
             catch (Exception ex)
             {
                 FormUtils.defaultErrorMessage(ex);
             }
         }
+        private ToValidate[] getValidators()
+        {
+            ToValidate[] validators =
+            {
+                new ToValidate(txtName, new ControlValidator[] { FormValidators.hasText },
+                new string[] { "Ingresa el nombre del equipo" })
+            };
+            return validators;
+        }
+
     }
 }

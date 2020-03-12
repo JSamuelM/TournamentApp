@@ -22,3 +22,29 @@ D:\Documents\2020\CICLO 01\Programacion con Estructura de Datos\Proyecto\Tournam
 D:\Documents\2020\CICLO 01\Programacion con Estructura de Datos\Proyecto\TournamentApp\obj\Debug\TournamentApp.pdb
 D:\Documents\2020\CICLO 01\Programacion con Estructura de Datos\Proyecto\TournamentApp\obj\Debug\TournamentApp.csprojAssemblyReference.cache
 D:\Documents\2020\CICLO 01\Programacion con Estructura de Datos\Proyecto\TournamentApp\obj\Debug\TournamentApp.Form1.resources
+C:\Users\carlo\Source\Repos\JSamuelM\TournamentApp\obj\Debug\TournamentApp.csprojAssemblyReference.cache
+C:\Users\carlo\Source\Repos\JSamuelM\TournamentApp\obj\Debug\TournamentApp.Form1.resources
+C:\Users\carlo\Source\Repos\JSamuelM\TournamentApp\obj\Debug\TournamentApp.Form2.resources
+C:\Users\carlo\Source\Repos\JSamuelM\TournamentApp\obj\Debug\TournamentApp.Properties.Resources.resources
+C:\Users\carlo\Source\Repos\JSamuelM\TournamentApp\obj\Debug\TournamentApp.csproj.GenerateResource.cache
+C:\Users\carlo\Source\Repos\JSamuelM\TournamentApp\obj\Debug\TournamentApp.csproj.CoreCompileInputs.cache
+C:\Users\carlo\Source\Repos\JSamuelM\TournamentApp\obj\Debug\TournamentApp.exe
+C:\Users\carlo\Source\Repos\JSamuelM\TournamentApp\obj\Debug\TournamentApp.pdb
+C:\Users\carlo\Source\Repos\JSamuelM\TournamentApp\bin\Debug\TournamentApp.exe.config
+C:\Users\carlo\Source\Repos\JSamuelM\TournamentApp\bin\Debug\TournamentApp.exe
+C:\Users\carlo\Source\Repos\JSamuelM\TournamentApp\bin\Debug\TournamentApp.pdb
+C:\Users\carlo\Source\Repos\JSamuelM\TournamentApp\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\carlo\Source\Repos\JSamuelM\TournamentApp\bin\Debug\EntityFramework.dll
+C:\Users\carlo\Source\Repos\JSamuelM\TournamentApp\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\carlo\Source\Repos\JSamuelM\TournamentApp\bin\Debug\Google.Protobuf.dll
+C:\Users\carlo\Source\Repos\JSamuelM\TournamentApp\bin\Debug\MySql.Data.dll
+C:\Users\carlo\Source\Repos\JSamuelM\TournamentApp\bin\Debug\MySql.Data.EntityFramework.dll
+C:\Users\carlo\Source\Repos\JSamuelM\TournamentApp\bin\Debug\Renci.SshNet.dll
+C:\Users\carlo\Source\Repos\JSamuelM\TournamentApp\bin\Debug\Ubiety.Dns.Core.dll
+C:\Users\carlo\Source\Repos\JSamuelM\TournamentApp\bin\Debug\EntityFramework.xml
+C:\Users\carlo\Source\Repos\JSamuelM\TournamentApp\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\carlo\Source\Repos\JSamuelM\TournamentApp\bin\Debug\Google.Protobuf.xml
+C:\Users\carlo\Source\Repos\JSamuelM\TournamentApp\bin\Debug\MySql.Data.xml
+C:\Users\carlo\Source\Repos\JSamuelM\TournamentApp\bin\Debug\MySql.Data.EntityFramework.xml
+C:\Users\carlo\Source\Repos\JSamuelM\TournamentApp\bin\Debug\Renci.SshNet.xml
+C:\Users\carlo\Source\Repos\JSamuelM\TournamentApp\obj\Debug\TournamentApp.csproj.CopyComplete
