@@ -113,7 +113,13 @@
     <Compile Include="Entity Framework\player.cs">
       <DependentUpon>EntityModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\CmbItem.cs" />
+    <Compile Include="Models\ControlErrorProvider.cs" />
+    <Compile Include="Models\FormValidators.cs" />
     <Compile Include="Models\Operation.cs" />
+    <Compile Include="Models\RegularExpression.cs" />
+    <Compile Include="Models\ToValidate.cs" />
+    <Compile Include="Models\Validators.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Entity Framework\team.cs">
