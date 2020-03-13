@@ -12,11 +12,6 @@ namespace TournamentApp
 {
     public partial class frmequipo : UserControl
     {
-        public frmequipo()
-        {
-            InitializeComponent();
-        }
-
         private static frmequipo _instance;
         public static frmequipo Instance
         {
@@ -29,9 +24,9 @@ namespace TournamentApp
                 return _instance;
             }
         }
-        private void frmequipo_Load(object sender, EventArgs e)
+        public frmequipo()
         {
-
+            InitializeComponent();
         }
     }
 }

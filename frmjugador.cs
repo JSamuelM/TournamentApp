@@ -12,10 +12,6 @@ namespace TournamentApp
 {
     public partial class frmjugador : UserControl
     {
-        public frmjugador()
-        {
-            InitializeComponent();
-        }
 
         private static frmjugador _instance;
         public static frmjugador Instance
@@ -30,19 +26,9 @@ namespace TournamentApp
             }
         }
 
-        private void frmjugador_Load(object sender, EventArgs e)
+        public frmjugador()
         {
-
-        }
-
-        private void txtedadjug_TextChanged(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void txtedadjug_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            
+            InitializeComponent();
         }
     }
 }

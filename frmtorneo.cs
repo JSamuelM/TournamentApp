@@ -12,10 +12,6 @@ namespace TournamentApp
 {
     public partial class frmtorneo : UserControl
     {
-        public frmtorneo()
-        {
-            InitializeComponent();
-        }
 
         private static frmtorneo _instance;
         public static frmtorneo Instance
@@ -30,14 +26,9 @@ namespace TournamentApp
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        public frmtorneo()
         {
-
-        }
-
-        private void frmtorneo_Load(object sender, EventArgs e)
-        {
-
+            InitializeComponent();
         }
     }
 }
