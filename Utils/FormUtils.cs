@@ -10,12 +10,14 @@ namespace TournamentApp.Utils
 {
     class FormUtils
     {
+        // Esconde columnas en el dgv
         public static void hideColumnsForDgv(int[] columnsToHide, DataGridView dgv)
         {
             foreach (int column in columnsToHide)
                 dgv.Columns[column].Visible = false;
         }
 
+        // Cambiar titulos
         public static void changeTitlesForDgv(string[] titles, int[] columnsToChange, DataGridView dgv)
         {
             if (!(titles.Length == columnsToChange.Length))
@@ -25,6 +27,7 @@ namespace TournamentApp.Utils
                 dgv.Columns[columnsToChange[i]].HeaderText = titles[i];
         }
 
+        // Limpiar textboxs
         public static void clearTextbox(Control[] controls)
         {
             foreach (Control c in controls)
