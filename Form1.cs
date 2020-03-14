@@ -10,7 +10,9 @@ using System.Windows.Forms;
 using TournamentApp.Controllers;
 using TournamentApp.Entity_Framework;
 using TournamentApp.Model;
+using TournamentApp.Models;
 using TournamentApp.Utils;
+using static TournamentApp.Models.FormValidators;
 
 namespace TournamentApp
 {
@@ -41,19 +43,26 @@ namespace TournamentApp
         // Cargar Tabla
         private void loadTable()
         {
-            Operation<tournament> getTournamentOperation = tournamentController.getRecords();
-            if (getTournamentOperation.State)
+            try
             {
-                tournaments = getTournamentOperation.Data;
-                dgvTournaments.DataSource = tournaments;
-                // Arreglo de titulos a cambiar, columnas a cambiar y el contrl datagridview
-                FormUtils.changeTitlesForDgv(titlesforColumns, columnsToChange, dgvTournaments);
-                // Esconder las columnas y datagridview
-                FormUtils.hideColumnsForDgv(columnsToHide, dgvTournaments);
-                return;
+                Operation<tournament> getTournamentOperation = tournamentController.getRecords();
+                if (getTournamentOperation.State)
+                {
+                    tournaments = getTournamentOperation.Data;
+                    dgvTournaments.DataSource = tournaments;
+                    // Arreglo de titulos a cambiar, columnas a cambiar y el contrl datagridview
+                    FormUtils.changeTitlesForDgv(titlesforColumns, columnsToChange, dgvTournaments);
+                    // Esconder las columnas y datagridview
+                    FormUtils.hideColumnsForDgv(columnsToHide, dgvTournaments);
+                    return;
+                }
+                MessageBox.Show("Error al cargar los datos de departamentos", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            MessageBox.Show("Error al cargar los datos de departamentos", "Error",
-                MessageBoxButtons.OK, MessageBoxIcon.Error);
+            catch (Exception ex)
+            {
+                FormUtils.defaultErrorMessage(ex);
+            }
         }
 
         // Guardar registro
@@ -116,6 +125,18 @@ namespace TournamentApp
         {
             FormUtils.clearTextbox(textControls());
             btnAgregar.Text = "Guardar";
+            selectedTournament = null;
+            errorProvider.Clear();
+        }
+
+        private ToValidate[] getValidators()
+        {
+            ToValidate[] validators =
+            {
+                new ToValidate(txtName, new ControlValidator[] { FormValidators.hasText },
+                new string[] { "Ingresa un nombre de torneo" })
+            };
+            return validators;
         }
 
         private Control[] textControls()
@@ -136,10 +157,10 @@ namespace TournamentApp
         {
             try
             {
-                //List<ControlErrorProvider> errorProvider = FormValidators.validFormTest(getValidators());
-                //bool isValid = errorProvider == null;
-                //if (isValid)
-                //{
+                List<ControlErrorProvider> errorProvider = FormValidators.validFormTest(getValidators());
+                bool isValid = errorProvider == null;
+                if (isValid)
+                {
                     if (selectedTournament == null)
                     {
                         saveData();
@@ -149,19 +170,19 @@ namespace TournamentApp
                         selectedTournament.tournament_name = txtName.Text;
                         updateData(selectedTournament);
                     }
-                //}
-                //else
-                //{
-                //    this.errorProvider.Clear();
-                //    MessageBox.Show("Algunos datos ingresados son inválidos.\n" +
-                //        "Pase el puntero sobre los íconos de error para ver los detalles de cada campo.", "Error al ingresar datos",
-                //        MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //    foreach (ControlErrorProvider controlErrorProvider in errorProvider)
-                //    {
-                //        this.errorProvider.SetError(controlErrorProvider.ControlName,
-                //            controlErrorProvider.ErrorMessage);
-                //    }
-                //}
+                }
+                else
+                {
+                    this.errorProvider.Clear();
+                    MessageBox.Show("Algunos datos ingresados son inválidos.\n" +
+                        "Pase el puntero sobre los íconos de error para ver los detalles de cada campo.", "Error al ingresar datos",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    foreach (ControlErrorProvider controlErrorProvider in errorProvider)
+                    {
+                        this.errorProvider.SetError(controlErrorProvider.ControlName,
+                            controlErrorProvider.ErrorMessage);
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -183,15 +204,22 @@ namespace TournamentApp
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            if (selectedTournament == null)
+            try
             {
-                MessageBox.Show("Seleccione un registro primero", "Error", MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
+                if (selectedTournament == null)
+                {
+                    MessageBox.Show("Seleccione un registro primero", "Error", MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                }
+                else
+                {
+                    selectedTournament.tournament_name = txtName.Text;
+                    deleteData(selectedTournament);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                selectedTournament.tournament_name = txtName.Text;
-                deleteData(selectedTournament);
+                FormUtils.defaultErrorMessage(ex);
             }
         }
 

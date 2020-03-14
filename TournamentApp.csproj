@@ -83,7 +83,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\Controller.cs" />
-    <Compile Include="Controllers\TeamController.cs" />
     <Compile Include="Controllers\TournamentController.cs" />
     <Compile Include="Entity Framework\EntityModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -114,11 +113,29 @@
     <Compile Include="Entity Framework\player.cs">
       <DependentUpon>EntityModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Form2.cs">
+    <Compile Include="frmequipo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="frmequipo.Designer.cs">
+      <DependentUpon>frmequipo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmjugador.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="frmjugador.Designer.cs">
+      <DependentUpon>frmjugador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmmenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form2.designer.cs">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <Compile Include="frmmenu.Designer.cs">
+      <DependentUpon>frmmenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmtorneo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="frmtorneo.Designer.cs">
+      <DependentUpon>frmtorneo.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\CmbItem.cs" />
     <Compile Include="Models\ControlErrorProvider.cs" />
@@ -139,8 +156,17 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form2.resx">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <EmbeddedResource Include="frmequipo.resx">
+      <DependentUpon>frmequipo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmjugador.resx">
+      <DependentUpon>frmjugador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmmenu.resx">
+      <DependentUpon>frmmenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmtorneo.resx">
+      <DependentUpon>frmtorneo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
