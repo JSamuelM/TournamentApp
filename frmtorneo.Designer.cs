@@ -29,23 +29,24 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmtorneo));
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvTournaments = new System.Windows.Forms.DataGridView();
             this.btneliminar = new System.Windows.Forms.Button();
             this.btnagregar = new System.Windows.Forms.Button();
             this.btnnuevo = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtnombretorneo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTournaments)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dgvTournaments
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(151, 205);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(506, 187);
-            this.dataGridView1.TabIndex = 30;
+            this.dgvTournaments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTournaments.Location = new System.Drawing.Point(151, 205);
+            this.dgvTournaments.Name = "dgvTournaments";
+            this.dgvTournaments.Size = new System.Drawing.Size(506, 187);
+            this.dgvTournaments.TabIndex = 30;
+            this.dgvTournaments.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTournaments_CellContentClick);
             // 
             // btneliminar
             // 
@@ -61,6 +62,7 @@
             this.btneliminar.TabIndex = 29;
             this.btneliminar.Text = "Eliminar";
             this.btneliminar.UseVisualStyleBackColor = true;
+            this.btneliminar.Click += new System.EventHandler(this.btneliminar_Click);
             // 
             // btnagregar
             // 
@@ -76,6 +78,7 @@
             this.btnagregar.TabIndex = 28;
             this.btnagregar.Text = "Agregar";
             this.btnagregar.UseVisualStyleBackColor = true;
+            this.btnagregar.Click += new System.EventHandler(this.btnagregar_Click);
             // 
             // btnnuevo
             // 
@@ -91,13 +94,14 @@
             this.btnnuevo.TabIndex = 27;
             this.btnnuevo.Text = "Nuevo";
             this.btnnuevo.UseVisualStyleBackColor = true;
+            this.btnnuevo.Click += new System.EventHandler(this.btnnuevo_Click);
             // 
-            // textBox1
+            // txtnombretorneo
             // 
-            this.textBox1.Location = new System.Drawing.Point(323, 110);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(334, 20);
-            this.textBox1.TabIndex = 26;
+            this.txtnombretorneo.Location = new System.Drawing.Point(323, 110);
+            this.txtnombretorneo.Name = "txtnombretorneo";
+            this.txtnombretorneo.Size = new System.Drawing.Size(334, 20);
+            this.txtnombretorneo.TabIndex = 26;
             // 
             // label1
             // 
@@ -124,16 +128,17 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvTournaments);
             this.Controls.Add(this.btneliminar);
             this.Controls.Add(this.btnagregar);
             this.Controls.Add(this.btnnuevo);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtnombretorneo);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label4);
             this.Name = "frmtorneo";
             this.Size = new System.Drawing.Size(804, 497);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.frmtorneo_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTournaments)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -141,12 +146,13 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvTournaments;
         private System.Windows.Forms.Button btneliminar;
         private System.Windows.Forms.Button btnagregar;
         private System.Windows.Forms.Button btnnuevo;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtnombretorneo;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

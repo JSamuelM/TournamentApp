@@ -76,7 +76,7 @@
             this.btnjugadores.ForeColor = System.Drawing.Color.White;
             this.btnjugadores.Image = ((System.Drawing.Image)(resources.GetObject("btnjugadores.Image")));
             this.btnjugadores.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnjugadores.Location = new System.Drawing.Point(3, 478);
+            this.btnjugadores.Location = new System.Drawing.Point(3, 335);
             this.btnjugadores.Name = "btnjugadores";
             this.btnjugadores.Size = new System.Drawing.Size(232, 69);
             this.btnjugadores.TabIndex = 2;
@@ -94,7 +94,7 @@
             this.btnequipos.ForeColor = System.Drawing.Color.White;
             this.btnequipos.Image = ((System.Drawing.Image)(resources.GetObject("btnequipos.Image")));
             this.btnequipos.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnequipos.Location = new System.Drawing.Point(1, 277);
+            this.btnequipos.Location = new System.Drawing.Point(0, 260);
             this.btnequipos.Name = "btnequipos";
             this.btnequipos.Size = new System.Drawing.Size(234, 69);
             this.btnequipos.TabIndex = 1;
@@ -130,7 +130,7 @@
             this.btnantiguotorneo.ForeColor = System.Drawing.Color.White;
             this.btnantiguotorneo.Image = ((System.Drawing.Image)(resources.GetObject("btnantiguotorneo.Image")));
             this.btnantiguotorneo.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnantiguotorneo.Location = new System.Drawing.Point(0, 199);
+            this.btnantiguotorneo.Location = new System.Drawing.Point(3, 182);
             this.btnantiguotorneo.Name = "btnantiguotorneo";
             this.btnantiguotorneo.Size = new System.Drawing.Size(283, 72);
             this.btnantiguotorneo.TabIndex = 1;

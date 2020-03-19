@@ -16,7 +16,7 @@ namespace TournamentApp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmmenu());
+            Application.Run(new frmmenu()); 
         }
     }
 }

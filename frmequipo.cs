@@ -268,5 +268,10 @@ namespace TournamentApp
                 FormUtils.defaultErrorMessage(ex);
             }
         }
+
+        private void frmequipo_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
