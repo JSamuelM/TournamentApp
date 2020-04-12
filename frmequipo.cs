@@ -68,7 +68,7 @@ namespace TournamentApp
             if (getTeamOperation.State)
             {
                 team = getTeamOperation.Data;
-              dtaequipos.DataSource = team;
+                dtaequipos.DataSource = team;
                 // Arreglo de titulos a cambiar, columnas a cambiar y el contrl datagridview
                 FormUtils.changeTitlesForDgv(titlesforColumns, columnsToChange, dtaequipos);
                 // Esconder las columnas y datagridview
@@ -156,6 +156,8 @@ namespace TournamentApp
         {
             FormUtils.clearTextbox(textControls());
             btnagregar.Text = "Agregar";
+            selectedTeam = null;
+            errorProvider.Clear();
         }
 
         private Control[] textControls()
@@ -267,6 +269,11 @@ namespace TournamentApp
             {
                 FormUtils.defaultErrorMessage(ex);
             }
+        }
+
+        private void frmequipo_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

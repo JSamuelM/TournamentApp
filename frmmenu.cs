@@ -46,7 +46,7 @@ namespace TournamentApp
         {
             if (Menuvertical.Width == 220)
             {
-                Menuvertical.Width = 72;
+                Menuvertical.Width = 0;
             }
             else Menuvertical.Width = 220;
         }
@@ -97,6 +97,33 @@ namespace TournamentApp
             {
                 frmtorneo.Instance.BringToFront();
             }
+        }
+
+        private void frmmenu_Load(object sender, EventArgs e)
+        {
+            Menuvertical.BackColor = ColorTranslator.FromHtml("#58b368");
+            Barratitulo.BackColor = ColorTranslator.FromHtml("#009975");
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            new Form3().Show();
+        }
+
+        private void btnantiguotorneo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnnuevotorneo_MouseEnter_1(object sender, EventArgs e)
+        {
+
         }
     }
 }
