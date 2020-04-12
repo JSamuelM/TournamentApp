@@ -10,8 +10,8 @@ using System.Windows.Forms;
 using TournamentApp.Controllers;
 using TournamentApp.Entity_Framework;
 using TournamentApp.Model;
-using TournamentApp.Utils;
 using TournamentApp.Models;
+using TournamentApp.Utils;
 using static TournamentApp.Models.FormValidators;
 
 namespace TournamentApp
@@ -34,21 +34,42 @@ namespace TournamentApp
         private static TournamentController tournamentController = new TournamentController();
         private List<tournament> tournaments = new List<tournament>(); //hacer una lista de la tabla torneo
 
+<<<<<<< HEAD
+=======
+
+        //llamar al controlador
+        private static TournamentController tournamentController = new TournamentController();
+        private List<tournament> tournaments = new List<tournament>(); //hacer una lista de la tabla torneo
+
+>>>>>>> 32dc4f9ce4b3538be18860fdca23cbc87032ea9b
         private tournament selectedTournament = null;//obtener los datos para el datagridview
 
         private int[] columnsToChange = { 0, 1 };
         private int[] columnsToHide = { 2 };
         private string[] titlesforColumns = { "ID", "Nombre de Torneo" };
+<<<<<<< HEAD
+=======
+
+>>>>>>> 32dc4f9ce4b3538be18860fdca23cbc87032ea9b
         public frmtorneo()
         {
             InitializeComponent();
         }
+<<<<<<< HEAD
+=======
+
+        // Llenar los datos seleccionados
+>>>>>>> 32dc4f9ce4b3538be18860fdca23cbc87032ea9b
         private void fillSelectedData(tournament currentTournament)
         {
             // Le damos el valor del torneo seleccionado accediendo a su propiedad
             txtnombretorneo.Text = currentTournament.tournament_name;
         }
+<<<<<<< HEAD
 
+=======
+        // Cargar Tabla
+>>>>>>> 32dc4f9ce4b3538be18860fdca23cbc87032ea9b
         private void loadTable()
         {
             try
@@ -73,6 +94,10 @@ namespace TournamentApp
             }
         }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 32dc4f9ce4b3538be18860fdca23cbc87032ea9b
         // Guardar registro
         private void saveData()
         {
@@ -135,6 +160,10 @@ namespace TournamentApp
             selectedTournament = null;
             errorProvider.Clear();
         }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 32dc4f9ce4b3538be18860fdca23cbc87032ea9b
         private ToValidate[] getValidators() //metodo para validacion 
         {
             ToValidate[] validators =
@@ -154,10 +183,48 @@ namespace TournamentApp
             return controls;
         }
 
+<<<<<<< HEAD
         private void btnagregar_Click(object sender, EventArgs e)
         {
             try
             {
+=======
+        private void frmtorneo_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                loadTable();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error al cargar",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void dgvTournaments_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                int index = e.RowIndex;
+                if (index >= 0)
+                {
+                    selectedTournament = tournaments[index];
+                    btnagregar.Text = "Modificar";
+                    fillSelectedData(selectedTournament);
+                }
+            }
+            catch (Exception ex)
+            {
+                FormUtils.defaultErrorMessage(ex);
+            }
+        }
+
+        private void btnagregar_Click(object sender, EventArgs e) //agregar 
+        {
+            try
+           {
+>>>>>>> 32dc4f9ce4b3538be18860fdca23cbc87032ea9b
                 List<ControlErrorProvider> errorProvider = FormValidators.validFormTest(getValidators());
                 bool isValid = errorProvider == null;
                 if (isValid)
@@ -187,11 +254,19 @@ namespace TournamentApp
             }
             catch (Exception ex)
             {
+<<<<<<< HEAD
                 // FormUtils.defaultErrorMessage(ex);
             }
         }
 
         private void btnnuevo_Click(object sender, EventArgs e)
+=======
+               // FormUtils.defaultErrorMessage(ex);
+            }
+        }
+
+        private void btnnuevo_Click(object sender, EventArgs e) //nuevo
+>>>>>>> 32dc4f9ce4b3538be18860fdca23cbc87032ea9b
         {
             try
             {
@@ -203,7 +278,11 @@ namespace TournamentApp
             }
         }
 
+<<<<<<< HEAD
         private void btneliminar_Click(object sender, EventArgs e)
+=======
+        private void btneliminar_Click(object sender, EventArgs e) //eliminar
+>>>>>>> 32dc4f9ce4b3538be18860fdca23cbc87032ea9b
         {
             try
             {
@@ -220,6 +299,7 @@ namespace TournamentApp
             }
             catch (Exception ex)
             {
+<<<<<<< HEAD
                 //FormUtils.defaultErrorMessage(ex);
             }
         }
@@ -252,6 +332,9 @@ namespace TournamentApp
             catch (Exception ex)
             {
                 FormUtils.defaultErrorMessage(ex);
+=======
+               //FormUtils.defaultErrorMessage(ex);
+>>>>>>> 32dc4f9ce4b3538be18860fdca23cbc87032ea9b
             }
         }
     }

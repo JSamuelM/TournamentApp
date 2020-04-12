@@ -146,7 +146,10 @@
             this.Size = new System.Drawing.Size(804, 497);
             this.Load += new System.EventHandler(this.frmtorneo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTournaments)).EndInit();
+<<<<<<< HEAD
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
+=======
+>>>>>>> 32dc4f9ce4b3538be18860fdca23cbc87032ea9b
             this.ResumeLayout(false);
             this.PerformLayout();
 
